@@ -1,33 +1,146 @@
-.App {
+#dd:hover {
+  background: blue;
+  z-index: 500;
+  border-radius: 2px;
+  border: 10px 15px 13px 15px green;
+  color: white;
+  height: 40px;
+  width: 150px;
+  margin-left: 4px;
+  transform: scaleY(1.0);
+  transform-style: preserve-3d;
+  transition-delay: 20ms;
+  transition-duration: 400ms;
+  box-shadow: 1px 3px 2px 1px #727272;
+  text-shadow: 0.4px 0.3px blanchedalmond;
+}
+
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background:#92bde7;
+  color:#485e74;
+  line-height:1.6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container{
+  max-width:1170px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:1em;
+}
+
+ul{
+  list-style: none;
+  padding:0;
+}
+
+.brand{
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.brand span{
+  color:#fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.wrapper{
+  box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
 }
 
-.App-link {
-  color: #61dafb;
+.wrapper > *{
+  padding: 1em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.company-info{
+  background:#c9e6ff;
+}
+
+.company-info h3, .company-info ul{
+  text-align: center;
+  margin:0 0 1rem 0;
+}
+
+.contact{
+  background:#f9feff;
+}
+
+/* FORM STYLES */
+.contact form{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:20px;
+}
+
+.contact form label{
+  display:block;
+}
+
+.contact form p{
+  margin:0;
+}
+
+.contact form .full{
+  grid-column: 1 / 3;
+}
+
+.contact form button, .contact form input,.contact form select,.contact form date, .contact form textarea{
+  width:100%;
+  padding:1em;
+  border:1px solid #c9e6ff;
+}
+
+.contact form button{
+  background:#c9e6ff;
+  border:0;
+  text-transform: uppercase;
+}
+
+.contact form button:hover,.contact form button:focus{
+  background:#92bde7;
+  color:#fff;
+  outline:0;
+  transition: background-color 2s ease-out;
+}
+
+/* LARGE SCREENS */
+@media(min-width:700px){
+  .wrapper{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
   }
-  to {
-    transform: rotate(360deg);
+
+  .wrapper > *{
+    padding:2em;
   }
+
+  .company-info h3, .company-info ul, .brand{
+    text-align: left;
+  }
+}
+
+
+/* addmodule page styles start */
+
+.formwidth {
+  width: 500px;
+}
+
+
+/* addmodule page styles end */
+
+.card-image {
+  background-image: url('./img/loginback1.jpg');
+  height: 39.05em;
+}
+
+.row-height {
+  height: 1.5em;
+}
+
+.btn-login :hover{
+  color: red;
 }
