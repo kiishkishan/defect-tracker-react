@@ -22,11 +22,11 @@ class AddDefectForm extends Component {
                             </p>
                             <p class="full">
                                 <label>Description</label>
-                                <textarea name="message" rows="5" id="description"></textarea>
+                                <textarea name="message" rows="3" id="description"></textarea>
                             </p>
                             <p class="full">
                                 <label>Steps to Recreate</label>
-                                <textarea name="message" rows="5" id="stepstorecreate"></textarea>
+                                <textarea name="message" rows="4" id="stepstorecreate"></textarea>
                             </p>
                             <p>
                                 <label>Severity</label>

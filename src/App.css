@@ -68,6 +68,9 @@ ul {
 }
 
 /* FORM STYLES */
+/* option {
+  font-size: 17px;
+} */
 
 .contact form {
   display: grid;
