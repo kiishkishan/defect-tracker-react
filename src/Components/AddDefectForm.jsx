@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { MDBContainer } from 'mdbreact'
+import NavbarPage from './navbar';
 
 class AddDefectForm extends Component {
     render() {
         return (
             <MDBContainer>
+                <NavbarPage />
                 <div class="wrapper animated bounceInLeft">
                     <div class="company-info">
                         <h3>Defect Entry</h3>
