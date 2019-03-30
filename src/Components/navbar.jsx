@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBContainer, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBMDBNavLink, MDBIcon } from 'mdbreact';
+import { MDBContainer, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBIcon } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 class FixedNavbarExample extends React.Component {

@@ -2,7 +2,7 @@
   background:#33b5e5;
   z-index: 500;
   border-radius: 2px;
-  border: 10px 15px 13px 15px green;
+  border: 10px 15px 13px 15px;
   color: white;
   height: 40px;
   width: 150px;
@@ -11,8 +11,23 @@
   transform-style: preserve-3d;
   transition-delay: 20ms;
   transition-duration: 400ms;
-  box-shadow: 1px 3px 2px 1px #727272;
+  box-shadow: 1px 3px 2px 1px #f3f3f3;
+  box-shadow: 2px 4px 3px 2px rgb(182, 182, 182);
   text-shadow: 0.4px 0.3px blanchedalmond;
+}
+
+.empty-height {
+  height: 15px;
+}
+
+.fixednavi-pr-solved {
+  height: 60px;
+}
+@media(max-width:700px)
+{
+  .fixednavi-pr-solved {
+    height: 200px;
+  }
 }
 
 * {
