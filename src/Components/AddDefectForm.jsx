@@ -20,6 +20,9 @@ class AddDefectForm extends Component {
                             <p>
                                 <label>Module</label>
                                 <select id="module">
+                                    <option value="Login">Login</option>
+                                    <option value="SignUp">SignUp</option>
+                                    <option value="DashBoard">DashBoard</option>
                                 </select>
                             </p>
                             <p class="full">
