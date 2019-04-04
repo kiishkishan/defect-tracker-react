@@ -9,6 +9,7 @@ class dashboard extends Component {
             <div>
                 <Nav />
                 <MDBContainer>
+                    <div className="fixednavi-pr-solved"></div>
                     <div className="row mb-4">
                         <div className="col-md-6 col-xl-3 mb-3">
                             <div className="card primary-color classic-admin-card">

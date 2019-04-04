@@ -148,8 +148,8 @@ ul {
 /* addmodule page styles end */
 
 .card-image {
-  background-image: url('./img/loginback1.jpg');
-  height: 41.05em;
+  background-image: url('./img/loginback.jpg');
+  height: auto;
 }
 
 .row-height {

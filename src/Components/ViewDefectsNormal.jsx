@@ -56,8 +56,8 @@ class ViewDefectTable extends Component {
                                 <td>29/03/2019</td>
                                 <td>Login Form v2.0</td>
                                 <td>Changed Color themes and CSS Preprocessors</td>
-                                <td>Edit</td>
-                                <td>Delete</td>
+                                <td><a href="/editdefect"><img src="https://img.icons8.com/nolan/35/000000/edit.png" alt="sorry no images" /></a></td>
+                                <td><a href="/deletedefect"><img src="https://img.icons8.com/color/35/000000/trash.png" alt="sorry no images" /></a></td>
                             </tr>
                         </tbody>
                         {/* <!--Table body--> */}
