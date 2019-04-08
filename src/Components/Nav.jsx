@@ -47,7 +47,7 @@ class Nav extends Component {
                                         </MDBDropdownToggle>
                                         <MDBDropdownMenu>
                                             <MDBDropdownItem id="dd" href="/addusers">Add an User</MDBDropdownItem>
-                                            <MDBDropdownItem id="dd" href="/viewusers">Manage Defects</MDBDropdownItem>
+                                            <MDBDropdownItem id="dd" href="/viewusers">Manage Users</MDBDropdownItem>
                                         </MDBDropdownMenu>
                                     </MDBDropdown>
                                 </MDBNavItem>

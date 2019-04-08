@@ -1,0 +1,124 @@
+{
+  "defect": [
+    {
+      "id": 1,
+      "Defect_ID": "DEF001",
+      "Module": "Login",
+      "Description": "Login Form",
+      "Steps_to_recreate": "Step1 : Styling",
+      "Severity": "High",
+      "Priority": "Medium",
+      "Defect_Type": "UI",
+      "Entered_By": "Thuvarakan",
+      "Entered_Date": "10/03/2019",
+      "Status": "Opened",
+      "Assigned_To": "Theepan",
+      "Fixed_By": "Theepan",
+      "Fixed_Date": "12/03/2019",
+      "Available_in": "13/03/2019",
+      "Comments": "Form Element - MDBootstrap"
+    },
+    {
+      "Defect_ID": "DEF002",
+      "Module": "Signup",
+      "Description": "Login Form",
+      "Steps_to_recreate": "Step1 : Styling",
+      "Severity": "High",
+      "Priority": "High",
+      "Defect_Type": "UI",
+      "Entered_By": "Kishanth",
+      "Entered_Date": "10/03/2019",
+      "Status": "Opened",
+      "Assigned_To": "Saarangan",
+      "Fixed_By": "Saarangan",
+      "Fixed_Date": "12/03/2019",
+      "Available_in": "13/03/2019",
+      "Comments": "Form Element - MDBootstrap",
+      "id": 2
+    },
+    {
+      "Defect_ID": "DEF003",
+      "Module": "Main Menu",
+      "Description": "Dashboard Entry",
+      "Steps_to_recreate": "Navigation setup\nRouter\nUI",
+      "Severity": "High",
+      "Priority": "High",
+      "Defect_Type": "UI",
+      "Entered_By": "Kishanth",
+      "Entered_Date": "2019-03-21",
+      "Status": "New",
+      "Assigned_To": "Dalistaa",
+      "Fixed_By": "Dalistaa",
+      "Fixed_Date": "2019-03-23",
+      "Available_in": "4 Days",
+      "Comments": "dashboard",
+      "id": 3
+    }
+  ],
+  "module": [
+    {
+      "id": 1,
+      "moduleID": "M001",
+      "moduleName": "Login"
+    },
+    {
+      "moduleID": "M003",
+      "moduleName": "Dashboard",
+      "id": 2
+    },
+    {
+      "moduleID": "M004",
+      "moduleName": "Admin",
+      "id": 3
+    },
+    {
+      "moduleID": "M005",
+      "moduleName": "UI",
+      "id": 4
+    },
+    {
+      "moduleID": "M006",
+      "moduleName": "Fetch API- Rest",
+      "id": 5
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Kishanth",
+      "lastName": "Shanthakumar",
+      "email": "kishanth001@gmail.com",
+      "password": "krish321",
+      "position": "Developer"
+    },
+    {
+      "id": 2,
+      "firstName": "Thuvarakan",
+      "lastName": "Karunakaran",
+      "email": "thuvarkan@gmail.com",
+      "password": "thuva123",
+      "position": "Developer"
+    },
+    {
+      "fullName": "Dalistaa",
+      "email": "dalistaa@gmail.com",
+      "password": "dalistaa123",
+      "jobRole": "QA",
+      "id": 3
+    },
+    {
+      "fullName": "Theepan",
+      "email": "maadduravi@gmail.com",
+      "password": "theeps123",
+      "jobRole": "QA",
+      "id": 4
+    },
+    {
+      "fullName": "Saarangan",
+      "email": "saarapaampu@gmail.com",
+      "password": "saarangs123",
+      "jobRole": "Developer",
+      "id": 5
+    }
+  ]
+}

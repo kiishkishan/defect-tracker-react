@@ -1,8 +1,38 @@
 import React, { Component } from "react";
 import { MDBInput, MDBBtn, MDBCard, MDBCardBody, MDBRow, MDBCol, MDBContainer } from "mdbreact";
 import Nav from "./Nav";
+import { Module } from '../fetch/ModulePost';
 
 class AddModule extends Component {
+
+  state = {
+    moduleID: "",
+    moduleName: "",
+    // modules: []
+  }
+
+  doChange = e => {
+    this.setState({
+      [e.target.id]: e.target.value
+    })
+
+  }
+
+  doSubmit = e => {
+    e.preventDefault();
+    const mod = {
+      moduleID: this.state.moduleID,
+      moduleName: this.state.moduleName
+    }
+    Module(mod);
+    console.log(
+      mod
+    )
+  }
+
+
+
+
   render() {
     return (
       <div>
@@ -17,7 +47,7 @@ class AddModule extends Component {
                 <MDBCardBody>
                   <form>
                     <div className="image-align">
-                      <i class="prefix grey-text">
+                      <i className="prefix grey-text">
                         <img
                           src="https://img.icons8.com/color/65/000000/module.png"
                           alt="asdf"
@@ -28,6 +58,10 @@ class AddModule extends Component {
                     <br />
                     <div className="grey-text">
                       <MDBInput
+                        name="moduleID"
+                        id="moduleID"
+                        value={this.state.moduleID}
+                        onChange={e => this.doChange(e)}
                         label="Module ID"
                         icon="key"
                         group
@@ -37,6 +71,10 @@ class AddModule extends Component {
                         success="right"
                       />
                       <MDBInput
+                        name="moduleName"
+                        id="moduleName"
+                        value={this.state.moduleName}
+                        onChange={e => this.doChange(e)}
                         label="Module Name"
                         icon="puzzle-piece"
                         group
@@ -48,7 +86,8 @@ class AddModule extends Component {
                     </div>
                     <div className="text-center py-4 mt-3">
                       <MDBBtn
-                        type="button"
+                        type="submit"
+                        onClick={e => this.doSubmit(e)}
                         gradient="blue"
                         rounded
                         className="btn-block z-depth-1a"

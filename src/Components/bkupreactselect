@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { MDBContainer } from 'mdbreact'
 import Nav from './Nav';
-import Defect from '../fetch/DefectPost';
-// import Select from 'react-select';
+import Select from 'react-select';
+
+const levels = [
+    { value: 'High', label: 'High' },
+    { value: 'Medium', label: 'Medium' },
+    { value: 'Low', label: 'Low' }
+];
 
 
-
-
-
+const levels1 = [
+    { value: 'High', label: 'High' },
+    { value: 'Medium', label: 'Medium' },
+    { value: 'Low', label: 'Low' }
+];
 
 class AddDefectForm extends Component {
 
@@ -16,17 +23,8 @@ class AddDefectForm extends Component {
         description: "",
         stepstorecreate: "",
         entereddate: "",
-        severity: "",
-        priority: "",
-        module: "",
-        defecttype: "",
-        enteredby: "",
-        status: "",
-        assignedto: "",
-        fixedby: "",
-        fixeddate: "",
-        availablein: "",
-        comments: "",
+        severity: null,
+        priority: null
     }
 
     doChange = e => {
@@ -34,56 +32,18 @@ class AddDefectForm extends Component {
         this.setState({
             [e.target.id]: e.target.value
         })
-        console.log(this.state.defectid)
-        console.log(this.state.fixeddate)
+        // console.log(this.state.priority)
     }
 
-    doSubmit = e => {
-        e.preventDefault();
-        const defect = {
-            Defect_ID: this.state.defectid,
-            Module: this.state.module,
-            Description: this.state.description,
-            Steps_to_recreate: this.state.stepstorecreate,
-            Severity: this.state.severity,
-            Priority: this.state.priority,
-            Defect_Type: this.state.defecttype,
-            Entered_By: this.state.enteredby,
-            Entered_Date: this.state.entereddate,
-            Status: this.state.status,
-            Assigned_To: this.state.assignedto,
-            Fixed_By: this.state.fixedby,
-            Fixed_Date: this.state.fixeddate,
-            Available_in: this.state.availablein,
-            Comments: this.state.comments
-        }
-        Defect(defect);
-        console.log(
-            this.state.defectid, defect
-        )
-
-        // this.setState({
-        //     defectid: "",
-        //     description: "",
-        //     stepstorecreate: "",
-        //     entereddate: "",
-        //     severity: "",
-        //     priority: "",
-        //     module: "",
-        //     defecttype: "",
-        //     enteredby: "",
-        //     status: "",
-        //     assignedto: "",
-        //     fixedby: "",
-        //     fixeddate: "",
-        //     availablein: "",
-        //     comments: "",
-        // })
-
+    handleChange = (e) => {
+        this.setState({ [e.target.id]: e.target.value });
+        // this.setState({ priority });
+        console.log(`Option selected - SelectedOption:`, this.state.severity);
+        console.log(`Option selected - SelectedOption1:`, this.state.priority)
     }
-
 
     render() {
+
 
 
         return (
@@ -109,12 +69,7 @@ class AddDefectForm extends Component {
                                 </p>
                                 <p>
                                     <label>Module</label>
-                                    <select
-                                        id="module"
-                                        name="module"
-                                        value={this.state.module}
-                                        onChange={e => this.doChange(e)}
-                                    >
+                                    <select id="module">
                                         <option value="Login">Login</option>
                                         <option value="SignUp">SignUp</option>
                                         <option value="DashBoard">DashBoard</option>
@@ -144,37 +99,32 @@ class AddDefectForm extends Component {
                                 </p>
                                 <p>
                                     <label>Severity</label>
-                                    <select
-                                        id="severity"
-                                        name="severity"
-                                        value={this.state.severity}
-                                        onChange={e => this.doChange(e)}
-                                    >
+                                    {/* <select id="severity">
                                         <option value="High">High</option>
                                         <option value="Medium">Medium</option>
                                         <option value="Low">Low</option>
-                                    </select>
-                                    {/* <Select
+                                    </select> */}
+                                    <Select
                                         // className="contact"
                                         id="severity"
                                         name="severity"
                                         value={this.state.severity}
-                                        onChange={e => this.doChange(e)}
+                                        onChange={this.handleChange}
                                         options={levels}
                                         placeholder="Select The Severity"
-                                    /> */}
+                                    />
                                 </p>
                                 <p>
                                     <label>Priority</label>
-                                    {/* <Select
+                                    <Select
                                         id="priority"
                                         name="priority"
                                         value={this.state.priority}
-                                        onChange={e => this.handleChange(e)}
-                                        options={levels}
+                                        onChange={this.handleChange}
+                                        options={levels1}
                                         placeholder="Select The Priority"
-                                    /> */}
-                                    <select
+                                    />
+                                    {/* <select
                                         id="priority"
                                         name="priority"
                                         value={this.state.priority}
@@ -183,16 +133,11 @@ class AddDefectForm extends Component {
                                         <option value="High">High</option>
                                         <option value="Medium">Medium</option>
                                         <option value="Low">Low</option>
-                                    </select>
+                                    </select> */}
                                 </p>
                                 <p>
                                     <label>Defect Type</label>
-                                    <select
-                                        id="defecttype"
-                                        name="defecttype"
-                                        value={this.state.defecttype}
-                                        onChange={e => this.doChange(e)}
-                                    >
+                                    <select id="defecttype">
                                         <option value="UI">UI</option>
                                         <option value="Functionality">Functionality</option>
                                         <option value="Performance">Performance</option>
@@ -200,12 +145,7 @@ class AddDefectForm extends Component {
                                 </p>
                                 <p>
                                     <label>Entered By</label>
-                                    <select
-                                        id="enteredby"
-                                        name="enteredby"
-                                        value={this.state.enteredby}
-                                        onChange={e => this.doChange(e)}
-                                    >
+                                    <select id="enteredby">
                                         <option value="user1">user1</option>
                                         <option value="user2">user2</option>
                                     </select>
@@ -221,12 +161,7 @@ class AddDefectForm extends Component {
                                 </p>
                                 <p>
                                     <label>Status</label>
-                                    <select
-                                        id="status"
-                                        name="status"
-                                        value={this.state.status}
-                                        onChange={e => this.doChange(e)}
-                                    >
+                                    <select id="status">
                                         <option value="New">New</option>
                                         <option value="Open">Open</option>
                                         <option value="Fixed">Fixed</option>
@@ -234,73 +169,38 @@ class AddDefectForm extends Component {
                                 </p>
                                 <p>
                                     <label>Assigned To</label>
-                                    <select
-                                        name="assignedto"
-                                        id="assignedto"
-                                        value={this.state.assignedto}
-                                        onChange={e => this.doChange(e)}
-                                    >
+                                    <select id="assignedto">
                                         <option value="user1">user1</option>
                                         <option value="user2">user2</option>
                                     </select>
                                 </p>
                                 <p>
                                     <label>Fixed By</label>
-                                    <select
-                                        name="fixedby"
-                                        id="fixedby"
-                                        value={this.state.fixedby}
-                                        onChange={e => this.doChange(e)}
-                                    >
+                                    <select id="fixedby">
                                         <option value="user1">user1</option>
                                         <option value="user2">user2</option>
                                     </select>
                                 </p>
                                 <p>
                                     <label>Fixed Date</label>
-                                    <input
-                                        type="date"
-                                        name="fixeddate"
-                                        id="fixeddate"
-                                        value={this.state.fixeddate}
-                                        onChange={e => this.doChange(e)}
-                                    />
+                                    <input type="date" name="bday" id="fixeddate" />
                                 </p>
                                 <p>
                                     <label>Available In</label>
-                                    <input
-                                        type="text"
-                                        name="availablein"
-                                        id="availablein"
-                                        value={this.state.availablein}
-                                        onChange={e => this.doChange(e)}
-                                    />
+                                    <input type="text" name="available in" id="availablein" />
                                 </p>
                                 <p className="full">
                                     <label>Comments</label>
-                                    <textarea
-                                        name="comments"
-                                        rows="5"
-                                        id="comments"
-                                        value={this.state.comments}
-                                        onChange={e => this.doChange(e)}
-                                    >
-                                    </textarea>
+                                    <textarea name="message" rows="5" id="comments"></textarea>
                                 </p>
                                 <p className="full">
-                                    <button
-                                        type="submit"
-                                        onclick={e => this.doSubmit(e)}
-                                        id="btn-submit"
-                                    >
-                                        Submit
-                                    </button>
+                                    <button type="button" onclick="addDefect()" id="btn-submit">Submit</button>
                                 </p>
                             </form>
                         </div>
                     </div>
                 </MDBContainer >
-            </div >
+            </div>
 
         );
     }
