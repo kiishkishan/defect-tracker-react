@@ -1,5 +1,5 @@
 export default function Defect(data) {
-    fetch('http://localhost:3000/module', {
+    fetch('http://localhost:3000/defect', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

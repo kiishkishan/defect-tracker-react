@@ -53,6 +53,42 @@
       "Available_in": "4 Days",
       "Comments": "dashboard",
       "id": 3
+    },
+    {
+      "Defect_ID": "",
+      "Module": "",
+      "Description": "",
+      "Steps_to_recreate": "",
+      "Severity": "High",
+      "Priority": "High",
+      "Defect_Type": "UI",
+      "Entered_By": "",
+      "Entered_Date": "2019-04-16",
+      "Status": "",
+      "Assigned_To": "",
+      "Fixed_By": "",
+      "Fixed_Date": "2019-3-3",
+      "Available_in": "",
+      "Comments": "",
+      "id": 4
+    },
+    {
+      "Defect_ID": "",
+      "Module": "",
+      "Description": "",
+      "Steps_to_recreate": "",
+      "Severity": "High",
+      "Priority": "High",
+      "Defect_Type": "UI",
+      "Entered_By": "",
+      "Entered_Date": "2019-04-16",
+      "Status": "",
+      "Assigned_To": "",
+      "Fixed_By": "",
+      "Fixed_Date": "2019-3-3",
+      "Available_in": "",
+      "Comments": "",
+      "id": 5
     }
   ],
   "module": [

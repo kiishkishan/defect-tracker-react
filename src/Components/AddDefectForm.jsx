@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { MDBContainer } from 'mdbreact'
 import Nav from './Nav';
 import Defect from '../fetch/DefectPost';
+
 // import Select from 'react-select';
 
 
@@ -11,36 +12,43 @@ import Defect from '../fetch/DefectPost';
 
 class AddDefectForm extends Component {
 
+
     state = {
         defectid: "",
         description: "",
         stepstorecreate: "",
-        entereddate: "",
-        severity: "",
-        priority: "",
+        // entereddate: Date('YY/MM/DD'),
+        entereddate: new Date().getFullYear() + '-' + new Date().getMonth() + '-' + new Date().getDay(),
+        severity: "High",
+        priority: "High",
         module: "",
-        defecttype: "",
+        defecttype: "UI",
         enteredby: "",
         status: "",
         assignedto: "",
         fixedby: "",
-        fixeddate: "",
+        fixeddate: new Date().getFullYear() + '-' + new Date().getMonth() + '-' + new Date().getDay(),
         availablein: "",
         comments: "",
+
     }
 
+
     doChange = e => {
-        e.preventDefault();
+
+        // console.log(this.state.defectid)
+        // console.log(this.state.module)
+        // console.log(this.state.fixeddate)
         this.setState({
             [e.target.id]: e.target.value
         })
-        console.log(this.state.defectid)
-        console.log(this.state.fixeddate)
+        console.log(this.state.severity)
+
     }
 
     doSubmit = e => {
         e.preventDefault();
-        const defect = {
+        const defects = {
             Defect_ID: this.state.defectid,
             Module: this.state.module,
             Description: this.state.description,
@@ -57,9 +65,9 @@ class AddDefectForm extends Component {
             Available_in: this.state.availablein,
             Comments: this.state.comments
         }
-        Defect(defect);
+        Defect(defects);
         console.log(
-            this.state.defectid, defect
+            Defect
         )
 
         // this.setState({
@@ -85,7 +93,7 @@ class AddDefectForm extends Component {
 
     render() {
 
-
+        // console.log(this.state.severity)
         return (
             <div>
                 <Nav />
@@ -150,7 +158,7 @@ class AddDefectForm extends Component {
                                         value={this.state.severity}
                                         onChange={e => this.doChange(e)}
                                     >
-                                        <option value="High">High</option>
+                                        <option active="true" value="High">High</option>
                                         <option value="Medium">Medium</option>
                                         <option value="Low">Low</option>
                                     </select>
@@ -289,8 +297,8 @@ class AddDefectForm extends Component {
                                 </p>
                                 <p className="full">
                                     <button
-                                        type="submit"
-                                        onclick={e => this.doSubmit(e)}
+                                        type="button"
+                                        onClick={e => this.doSubmit(e)}
                                         id="btn-submit"
                                     >
                                         Submit
