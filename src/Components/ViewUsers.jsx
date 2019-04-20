@@ -34,8 +34,7 @@ class ViewUsers extends Component {
                         <thead>
                             <tr>
                                 <th scope="row">#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
+                                <th>Full Name</th>
                                 <th>Email</th>
                                 <th>Position</th>
                                 <th></th>
@@ -49,10 +48,9 @@ class ViewUsers extends Component {
                             {this.state.users.map(e => (
                                 <tr>
                                     <td>{e.id}</td>
-                                    <td>{e.firstName}</td>
-                                    <td>{e.lastName}</td>
+                                    <td>{e.fullName}</td>
                                     <td>{e.email}</td>
-                                    <td>{e.position}</td>
+                                    <td>{e.jobRole}</td>
                                     <td><a href="/edituser"><img src="https://img.icons8.com/nolan/35/000000/edit.png" alt="sorry no images" /></a></td>
                                     <td><a href="/deleteuser"><img src="https://img.icons8.com/color/35/000000/trash.png" alt="sorry no images" /></a></td>
                                 </tr>

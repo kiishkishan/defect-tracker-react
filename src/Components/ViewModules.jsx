@@ -36,6 +36,7 @@ class ViewModules extends Component {
                                 <th scope="row">#</th>
                                 <th>Module ID</th>
                                 <th>Module Name</th>
+                                <th>Assigned Persons</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -49,6 +50,7 @@ class ViewModules extends Component {
                                     <td>{e.id}</td>
                                     <td>{e.moduleID}</td>
                                     <td>{e.moduleName}</td>
+                                    <td>{e.assignedPersons}</td>
                                     <td><a href="/editmodule"><img src="https://img.icons8.com/nolan/35/000000/edit.png" alt="sorry no images" /></a></td>
                                     <td><a href="/deletemodule"><img src="https://img.icons8.com/color/35/000000/trash.png" alt="sorry no images" /></a></td>
                                 </tr>

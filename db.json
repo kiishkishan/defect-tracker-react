@@ -93,47 +93,164 @@
   ],
   "module": [
     {
-      "id": 1,
       "moduleID": "M001",
-      "moduleName": "Login"
+      "moduleName": "Buttons",
+      "assignedPersons": "Theepan",
+      "id": 1
     },
     {
-      "moduleID": "M003",
-      "moduleName": "Dashboard",
+      "moduleID": "M002",
+      "moduleName": "NavBar",
+      "assignedPersons": "Kishanth",
       "id": 2
     },
     {
-      "moduleID": "M004",
-      "moduleName": "Admin",
+      "moduleID": "M003",
+      "moduleName": "Carousel",
+      "assignedPersons": "Thuvarakan",
       "id": 3
     },
     {
-      "moduleID": "M005",
-      "moduleName": "UI",
+      "moduleID": "M004",
+      "moduleName": "Multi-Select",
+      "assignedPersons": "Saarangan",
       "id": 4
     },
     {
-      "moduleID": "M006",
-      "moduleName": "Fetch API- Rest",
+      "moduleID": "M004",
+      "moduleName": "Multi-Select",
+      "assignedPersons": "Saarangan",
       "id": 5
+    },
+    {
+      "moduleID": "M004",
+      "moduleName": "Multi-Select",
+      "assignedPersons": "Saarangan",
+      "id": 6
+    },
+    {
+      "moduleID": "M004",
+      "moduleName": "Multi-Select",
+      "assignedPersons": "Saarangan",
+      "id": 7
+    },
+    {
+      "moduleID": "M004",
+      "moduleName": "Multi-Select",
+      "assignedPersons": "Saarangan",
+      "id": 8
+    },
+    {
+      "moduleID": "M004",
+      "moduleName": "Multi-Select",
+      "assignedPersons": "Saarangan",
+      "id": 9
+    },
+    {
+      "moduleID": "M005",
+      "moduleName": "sf",
+      "assignedPersons": "Thuvarakan",
+      "id": 10
+    },
+    {
+      "moduleID": "M005",
+      "moduleName": "sf",
+      "assignedPersons": "Thuvarakan",
+      "id": 11
+    },
+    {
+      "moduleID": "sdfa",
+      "moduleName": "asf",
+      "assignedPersons": "Saarangan",
+      "id": 12
+    },
+    {
+      "moduleID": "",
+      "moduleName": "",
+      "assignedPersons": "",
+      "id": 13
+    },
+    {
+      "moduleID": "KLDFGN",
+      "moduleName": "jsndf",
+      "assignedPersons": "Dalistaa",
+      "id": 14
+    },
+    {
+      "moduleID": "KLDFGN",
+      "moduleName": "jsndf",
+      "assignedPersons": "Dalistaa",
+      "id": 15
+    },
+    {
+      "moduleID": "sf",
+      "moduleName": "jkhsfv",
+      "assignedPersons": "",
+      "id": 16
+    },
+    {
+      "moduleID": "jhsfbvJHDBVJB",
+      "moduleName": "SHVBJ",
+      "assignedPersons": "Thuvarakan",
+      "id": 17
+    },
+    {
+      "moduleID": "sdfjknkjb",
+      "moduleName": "jhv",
+      "assignedPersons": "",
+      "id": 18
+    },
+    {
+      "moduleID": "",
+      "moduleName": "",
+      "assignedPersons": "",
+      "id": 19
+    },
+    {
+      "moduleID": "kwsbj",
+      "moduleName": "kbsdfk",
+      "assignedPersons": "Thuvarakan",
+      "id": 20
+    },
+    {
+      "moduleID": "",
+      "moduleName": "",
+      "assignedPersons": "",
+      "id": 21
+    },
+    {
+      "moduleID": "",
+      "moduleName": "",
+      "assignedPersons": "",
+      "id": 22
+    },
+    {
+      "moduleID": "asef",
+      "moduleName": "asf",
+      "assignedPersons": "Dalistaa",
+      "id": 23
+    },
+    {
+      "moduleID": "erfsef",
+      "moduleName": "shfg",
+      "assignedPersons": "Kishanth",
+      "id": 24
     }
   ],
   "users": [
     {
-      "id": 1,
-      "firstName": "Kishanth",
-      "lastName": "Shanthakumar",
+      "fullName": "Kishanth",
       "email": "kishanth001@gmail.com",
-      "password": "krish321",
-      "position": "Developer"
+      "password": "krish123",
+      "jobRole": "Developer",
+      "id": 1
     },
     {
-      "id": 2,
-      "firstName": "Thuvarakan",
-      "lastName": "Karunakaran",
-      "email": "thuvarkan@gmail.com",
+      "fullName": "Thuvarakan",
+      "email": "thuvarakan@gmail.com",
       "password": "thuva123",
-      "position": "Developer"
+      "jobRole": "Developer",
+      "id": 2
     },
     {
       "fullName": "Dalistaa",
@@ -155,6 +272,13 @@
       "password": "saarangs123",
       "jobRole": "Developer",
       "id": 5
+    },
+    {
+      "fullName": "Sham",
+      "email": "sjf@dgjn.sa",
+      "password": "kkk",
+      "jobRole": "QA",
+      "id": 6
     }
   ]
 }

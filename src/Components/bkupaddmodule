@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { MDBInput, MDBBtn, MDBCard, MDBCardBody, MDBRow, MDBCol, MDBContainer } from "mdbreact";
-// import { Multiselect } from 'multiselect-react-dropdown';
+import Select from 'react-select';
 import Nav from "./Nav";
 import { Module } from '../fetch/ModulePost';
 
@@ -11,23 +11,27 @@ class AddModule extends Component {
   state = {
     moduleID: "",
     moduleName: "",
-    user: "",
-    // alert1: "",
-    // alert2: "",
-    users: []
+    multiValue: [],
+    filterOptions: [
+      { value: "foo", label: "Foo" },
+      { value: "bar", label: "Bar" },
+      { value: "bat", label: "Bat" }
+    ]
   };
 
 
-  //load users
-  async componentDidMount() {
-    const url = "http://localhost:3000/users";
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
-    this.setState({ users: data });
 
+
+
+
+  handleMultiChange(option) {
+    this.setState(state => {
+      return {
+        multiValue: option
+      };
+    });
+    console.log(this.state.multiValue);
   }
-
 
 
   doChange = e => {
@@ -35,72 +39,24 @@ class AddModule extends Component {
       [e.target.id]: e.target.value
     })
 
-
-    // console.log(this.state.user);
   }
-
-  // doSelect = e => {
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   })
-  //   console.log(this.state.user);
-  // }
 
   doSubmit = e => {
     e.preventDefault();
     const mod = {
       moduleID: this.state.moduleID,
-      moduleName: this.state.moduleName,
-      assignedPersons: this.state.user
+      moduleName: this.state.moduleName
     }
-
-    if (this.state.moduleID === "" || this.state.moduleID == null) {
-      document.getElementById('alert1').innerHTML = '<div class="alert alert-danger" role="alert">Module Id field is Empty</div > ';
-      document.getElementById('alert2').innerHTML = "";
-      return false;
-    }
-    else if (this.state.moduleName === "" || this.state.moduleName == null) {
-      document.getElementById('alert1').innerHTML = "";
-      document.getElementById('alert2').innerHTML = '<div class="alert alert-danger" role="alert">Module Name field is Empty</div > ';
-      return false;
-    }
-    else if (this.state.user === "" || this.state.user == null) {
-      document.getElementById('alert1').innerHTML = "";
-      document.getElementById('alert2').innerHTML = "";
-      return false;
-    }
-
-    else {
-      Module(mod);
-
-    }
-
-
+    Module(mod);
     console.log(
       mod
     )
   }
 
-  isSubmit = e => {
-    this.doSubmit(e);
-    if (this.doSubmit) {
-      this.setState({
-        moduleID: "",
-        moduleName: "",
-        user: ""
-      }
-      )
-
-
-
-    };
-
-  }
 
 
 
   render() {
-    console.log(this.state.user);
     return (
       <div>
         <Nav />
@@ -137,9 +93,6 @@ class AddModule extends Component {
                         error="wrong"
                         success="right"
                       />
-                      <div id="alert1">
-                      </div>
-
                       <MDBInput
                         name="moduleName"
                         id="moduleName"
@@ -153,31 +106,20 @@ class AddModule extends Component {
                         error="wrong"
                         success="right"
                       />
-                      <div id="alert2"></div>
-                      <label for="user">Users</label>
-                      <select
-                        className="browser-default custom-select"
-                        id="user"
-                        name="user"
-                        placeholder="Choose Users"
-                        value={this.state.user}
-                        onChange={e => this.doChange(e)}
-                      >
-                        <option value="">Choose the Users</option>
-
-
-                        {this.state.users.map(e => (
-                          <option value={e.fullName}>{e.fullName}</option>
-                        ))}
-
-
-
-                      </select>
+                      <label for="userselect">Users</label>
+                      <Select
+                        name="filters"
+                        placeholder="Filters"
+                        value={this.state.multiValue}
+                        options={this.state.filterOptions}
+                        onChange={this.handleMultiChange}
+                        multi="true"
+                      />
                     </div>
                     <div className="text-center py-4 mt-3">
                       <MDBBtn
                         type="submit"
-                        onClick={e => this.isSubmit(e)}
+                        onClick={e => this.doSubmit(e)}
                         gradient="blue"
                         rounded
                         className="btn-block z-depth-1a"
