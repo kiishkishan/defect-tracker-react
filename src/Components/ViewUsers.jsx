@@ -9,7 +9,7 @@ class ViewUsers extends Component {
     }
 
     async componentDidMount() {
-        const url = "http://localhost:3000/users";
+        const url = "http://localhost:8080/defect/user/getall";
         const response = await fetch(url);
         const data = await response.json();
         console.log(data);
@@ -48,9 +48,9 @@ class ViewUsers extends Component {
                             {this.state.users.map(e => (
                                 <tr>
                                     <td>{e.id}</td>
-                                    <td>{e.fullName}</td>
+                                    <td>{e.name}</td>
                                     <td>{e.email}</td>
-                                    <td>{e.jobRole}</td>
+                                    <td>{e.type}</td>
                                     <td><a href="/edituser"><img src="https://img.icons8.com/nolan/35/000000/edit.png" alt="sorry no images" /></a></td>
                                     <td><a href="/deleteuser"><img src="https://img.icons8.com/color/35/000000/trash.png" alt="sorry no images" /></a></td>
                                 </tr>

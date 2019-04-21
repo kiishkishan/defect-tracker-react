@@ -12,20 +12,29 @@ class AddModule extends Component {
     moduleID: "",
     moduleName: "",
     user: "",
+    project: "",
     // alert1: "",
     // alert2: "",
-    users: []
+    users: [],
+    projects: []
   };
 
 
   //load users
   async componentDidMount() {
-    const url = "http://localhost:3000/users";
+     //load users
+    const url = "http://localhost:8080/defect/user/getall";
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
-    this.setState({ users: data });
+    this.setState({ users: data }); 
 
+    //load projects
+    const url2 = "http://localhost:8080/defect/project/getall";
+    const response2 = await fetch(url2);
+    const data2 = await response2.json();
+    console.log(data2);
+    this.setState({ projects: data2 }); 
   }
 
 
@@ -36,7 +45,7 @@ class AddModule extends Component {
     })
 
 
-    // console.log(this.state.user);
+    console.log(this.state.project);
   }
 
   // doSelect = e => {
@@ -49,9 +58,10 @@ class AddModule extends Component {
   doSubmit = e => {
     e.preventDefault();
     const mod = {
-      moduleID: this.state.moduleID,
-      moduleName: this.state.moduleName,
-      assignedPersons: this.state.user
+      id: this.state.moduleID,
+      name: this.state.moduleName,
+      user_id: this.state.user,
+      project_id: this.state.project
     }
 
     if (this.state.moduleID === "" || this.state.moduleID == null) {
@@ -87,7 +97,8 @@ class AddModule extends Component {
       this.setState({
         moduleID: "",
         moduleName: "",
-        user: ""
+        user: "",
+        project: ""
       }
       )
 
@@ -100,7 +111,7 @@ class AddModule extends Component {
 
 
   render() {
-    console.log(this.state.user);
+    // console.log(this.state.project);
     return (
       <div>
         <Nav />
@@ -167,7 +178,28 @@ class AddModule extends Component {
 
 
                         {this.state.users.map(e => (
-                          <option value={e.fullName}>{e.fullName}</option>
+                          <option value={e.id}>{e.name}</option>
+                        ))}
+
+
+
+                      </select>
+                      <br/><br/>
+                      Project
+                      <br/>
+                      <select
+                        className="browser-default custom-select"
+                        id="user"
+                        name="user"
+                        placeholder="Choose Users"
+                        value={this.state.project}
+                        onChange={e => this.doChange(e)}
+                      >
+                        <option value="">Choose the Project</option>
+
+
+                        {this.state.projects.map(e => (
+                          <option value={e.id}>{e.name}</option>
                         ))}
 
 

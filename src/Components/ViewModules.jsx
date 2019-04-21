@@ -9,7 +9,7 @@ class ViewModules extends Component {
     }
 
     async componentDidMount() {
-        const url = "http://localhost:3000/module";
+        const url = "http://localhost:8080/defect/module/getall";
         const response = await fetch(url);
         const data = await response.json();
         console.log(data);
@@ -36,7 +36,6 @@ class ViewModules extends Component {
                                 <th scope="row">#</th>
                                 <th>Module ID</th>
                                 <th>Module Name</th>
-                                <th>Assigned Persons</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -48,12 +47,12 @@ class ViewModules extends Component {
                             {this.state.modules.map(e => (
                                 <tr>
                                     <td>{e.id}</td>
-                                    <td>{e.moduleID}</td>
-                                    <td>{e.moduleName}</td>
-                                    <td>{e.assignedPersons}</td>
+                                    <td>{e.name}</td>
+                                    <td>{e.project_id}</td>
                                     <td><a href="/editmodule"><img src="https://img.icons8.com/nolan/35/000000/edit.png" alt="sorry no images" /></a></td>
                                     <td><a href="/deletemodule"><img src="https://img.icons8.com/color/35/000000/trash.png" alt="sorry no images" /></a></td>
                                 </tr>
+                                
                             ))}
                         </tbody>
                         {/* <!--Table body--> */}

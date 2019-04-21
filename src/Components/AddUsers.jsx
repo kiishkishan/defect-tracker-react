@@ -63,10 +63,10 @@ class AddUsers extends Component {
     doSubmit = e => {
 
         const users = {
-            fullName: this.state.fullName,
+            name: this.state.fullName,
             email: this.state.email,
             password: this.state.password,
-            jobRole: this.state.selectedOption.value,
+            type: this.state.selectedOption.value,
             // selectedOption: this.state.selectedOption
         }
 
@@ -75,6 +75,14 @@ class AddUsers extends Component {
         console.log(
             User
         )
+
+        this.setState({
+            fullName: "",
+            email: "",
+            password: "",
+            cfPassword: "",
+            selectedOption: null
+        })
 
     }
 

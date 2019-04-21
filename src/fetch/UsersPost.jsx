@@ -1,5 +1,5 @@
 export function User(data) {
-    fetch('http://localhost:3000/users', {
+    fetch('http://localhost:8080/defect/user/save', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
