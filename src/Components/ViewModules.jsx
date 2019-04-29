@@ -33,9 +33,11 @@ class ViewModules extends Component {
                         {/* <!--Table head--> */}
                         <thead>
                             <tr>
-                                <th scope="row">#</th>
+
                                 <th>Module ID</th>
                                 <th>Module Name</th>
+                                <th>Project Name</th>
+                                <th>User Name</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -46,13 +48,15 @@ class ViewModules extends Component {
 
                             {this.state.modules.map(e => (
                                 <tr>
+
                                     <td>{e.id}</td>
                                     <td>{e.name}</td>
                                     <td>{e.project_id}</td>
+                                    <td>{e.user_id}</td>
                                     <td><a href="/editmodule"><img src="https://img.icons8.com/nolan/35/000000/edit.png" alt="sorry no images" /></a></td>
                                     <td><a href="/deletemodule"><img src="https://img.icons8.com/color/35/000000/trash.png" alt="sorry no images" /></a></td>
                                 </tr>
-                                
+
                             ))}
                         </tbody>
                         {/* <!--Table body--> */}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBContainer } from 'mdbreact'
+import { MDBContainer } from 'mdbreact';
 import Nav from './Nav';
 import Defect from '../fetch/DefectPost';
 
@@ -30,6 +30,21 @@ class AddDefectForm extends Component {
         fixeddate: new Date().getFullYear() + '-' + new Date().getMonth() + '-' + new Date().getDay(),
         availablein: "",
         comments: "",
+        user: []
+
+    }
+
+
+    async componentDidMount() {
+        const url = "http://localhost:8080/defect/user/getall";
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+        this.setState({ user: data });
+
+        // data.forEach(element => {
+        //     console.log(element.severity);
+        // });
 
     }
 
@@ -214,8 +229,10 @@ class AddDefectForm extends Component {
                                         value={this.state.enteredby}
                                         onChange={e => this.doChange(e)}
                                     >
-                                        <option value="user1">user1</option>
-                                        <option value="user2">user2</option>
+                                        <option value="user1">Choose the User</option>
+                                        {this.state.user.map(e => (
+                                            <option value={e.id}>{e.name}</option>
+                                        ))}
                                     </select>
                                 </p>
                                 <p>
@@ -248,8 +265,10 @@ class AddDefectForm extends Component {
                                         value={this.state.assignedto}
                                         onChange={e => this.doChange(e)}
                                     >
-                                        <option value="user1">user1</option>
-                                        <option value="user2">user2</option>
+                                        <option value="user1">Choose the User</option>
+                                        {this.state.user.map(e => (
+                                            <option value={e.id}>{e.name}</option>
+                                        ))}
                                     </select>
                                 </p>
                                 <p>
@@ -260,8 +279,10 @@ class AddDefectForm extends Component {
                                         value={this.state.fixedby}
                                         onChange={e => this.doChange(e)}
                                     >
-                                        <option value="user1">user1</option>
-                                        <option value="user2">user2</option>
+                                        <option value="user1">Choose the User</option>
+                                        {this.state.user.map(e => (
+                                            <option value={e.id}>{e.name}</option>
+                                        ))}
                                     </select>
                                 </p>
                                 <p>

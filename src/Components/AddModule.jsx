@@ -22,19 +22,20 @@ class AddModule extends Component {
 
   //load users
   async componentDidMount() {
-     //load users
+    //load users
     const url = "http://localhost:8080/defect/user/getall";
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
-    this.setState({ users: data }); 
+    this.setState({ users: data });
 
     //load projects
     const url2 = "http://localhost:8080/defect/project/getall";
     const response2 = await fetch(url2);
     const data2 = await response2.json();
     console.log(data2);
-    this.setState({ projects: data2 }); 
+    this.setState({ projects: data2 });
+    console.log(data2)
   }
 
 
@@ -58,18 +59,13 @@ class AddModule extends Component {
   doSubmit = e => {
     e.preventDefault();
     const mod = {
-      id: this.state.moduleID,
       name: this.state.moduleName,
       user_id: this.state.user,
       project_id: this.state.project
     }
 
-    if (this.state.moduleID === "" || this.state.moduleID == null) {
-      document.getElementById('alert1').innerHTML = '<div class="alert alert-danger" role="alert">Module Id field is Empty</div > ';
-      document.getElementById('alert2').innerHTML = "";
-      return false;
-    }
-    else if (this.state.moduleName === "" || this.state.moduleName == null) {
+
+    if (this.state.moduleName === "" || this.state.moduleName == null) {
       document.getElementById('alert1').innerHTML = "";
       document.getElementById('alert2').innerHTML = '<div class="alert alert-danger" role="alert">Module Name field is Empty</div > ';
       return false;
@@ -95,7 +91,6 @@ class AddModule extends Component {
     this.doSubmit(e);
     if (this.doSubmit) {
       this.setState({
-        moduleID: "",
         moduleName: "",
         user: "",
         project: ""
@@ -136,22 +131,6 @@ class AddModule extends Component {
                     <br />
                     <div className="grey-text">
                       <MDBInput
-                        name="moduleID"
-                        id="moduleID"
-                        value={this.state.moduleID}
-                        onChange={e => this.doChange(e)}
-                        label="Module ID"
-                        icon="key"
-                        group
-                        type="text"
-                        validate
-                        error="wrong"
-                        success="right"
-                      />
-                      <div id="alert1">
-                      </div>
-
-                      <MDBInput
                         name="moduleName"
                         id="moduleName"
                         value={this.state.moduleName}
@@ -184,18 +163,18 @@ class AddModule extends Component {
 
 
                       </select>
-                      <br/><br/>
+                      <br /><br />
                       Project
-                      <br/>
+                      <br />
                       <select
                         className="browser-default custom-select"
-                        id="user"
-                        name="user"
+                        id="project"
+                        name="project"
                         placeholder="Choose Users"
                         value={this.state.project}
                         onChange={e => this.doChange(e)}
                       >
-                        <option value="">Choose the Project</option>
+                        <option value="">Choose the Project</option>--+++
 
 
                         {this.state.projects.map(e => (

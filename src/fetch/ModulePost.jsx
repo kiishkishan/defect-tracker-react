@@ -1,5 +1,5 @@
 export function Module(data) {
-    fetch('http://localhost:3000/module', {
+    fetch('http://localhost:8080/module/save', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

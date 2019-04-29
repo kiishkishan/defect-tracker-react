@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from './Nav';
 import { MDBContainer } from 'mdbreact';
+// import DefectDelete from '../fetch/DefectDelete';
 
 class ViewDefectTable extends Component {
 
@@ -8,15 +9,31 @@ class ViewDefectTable extends Component {
         defects: []
     }
 
-    async componentDidMount() {
-        const url = "http://localhost:3000/defect";
+    handleDelete = id => {
+        fetch("http://localhost:8080/defect/deleteDefect/" + id, {
+            method: "DELETE"
+        })
+            .then(this.getAllDefect())
+        console.log(" Successfully deleted " + id);
+    };
+
+    async getAllDefect() {
+        const url = "http://localhost:8080/defect/getAllDefect";
         const response = await fetch(url);
         const data = await response.json();
         console.log(data);
         this.setState({ defects: data });
     }
 
+    componentDidMount() {
+
+        this.getAllDefect();
+        // this.handleDelete();
+
+    }
+
     render() {
+        this.handleDelete();
         return (
             <div>
                 <Nav />
@@ -56,8 +73,17 @@ class ViewDefectTable extends Component {
 
                             {this.state.defects.map(e => (
                                 <tr>
+
                                     <td>{e.id}</td>
-                                    <td>{e.Defect_ID}</td>
+                                    <td>{e.defect_type}</td>
+                                    <td>{e.description}</td>
+                                    <td>{e.module}</td>
+                                    <td>{e.priority}</td>
+                                    <td>{e.severity}</td>
+                                    <td>{e.status}</td>
+                                    <td>{e.steps}</td>
+                                    <td>{e.user}</td>
+                                    {/* <td>{e.Defect_ID}</td>
                                     <td>{e.Module}</td>
                                     <td>{e.Description}</td>
                                     <td>{e.Steps_to_recreate}</td>
@@ -71,9 +97,9 @@ class ViewDefectTable extends Component {
                                     <td>{e.Fixed_By}</td>
                                     <td>{e.Fixed_Date}</td>
                                     <td>{e.Available_in}</td>
-                                    <td>{e.Comments}</td>
+                                    <td>{e.Comments}</td> */}
                                     <td><a href="/editdefect"><img src="https://img.icons8.com/nolan/35/000000/edit.png" alt="sorry no images" /></a></td>
-                                    <td><a href="/deletedefect"><img src="https://img.icons8.com/color/35/000000/trash.png" alt="sorry no images" /></a></td>
+                                    <td><button type="submit" onClick={this.handleDelete.bind(this, e.id)}><img src="https://img.icons8.com/color/35/000000/trash.png" alt="sorry no images" /></button></td>
 
 
 
