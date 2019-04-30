@@ -9,7 +9,6 @@ class AddModule extends Component {
 
 
   state = {
-    moduleID: "",
     moduleName: "",
     user: "",
     project: "",
@@ -58,37 +57,32 @@ class AddModule extends Component {
 
   doSubmit = e => {
     e.preventDefault();
-    const mod = {
+    // alert("sgf");
+    let mod = {
       name: this.state.moduleName,
       user_id: this.state.user,
       project_id: this.state.project
     }
+    console.log(mod);
 
+    // if (this.state.moduleName === "" || this.state.moduleName == null) {
+    //   document.getElementById('alert1').innerHTML = "";
+    //   document.getElementById('alert2').innerHTML = '<div class="alert alert-danger" role="alert">Module Name field is Empty</div > ';
+    //   return false;
+    // }
+    // else if (this.state.user === "" || this.state.user == null) {
+    //   document.getElementById('alert1').innerHTML = "";
+    //   document.getElementById('alert2').innerHTML = "";
+    //   return false;
+    // }
 
-    if (this.state.moduleName === "" || this.state.moduleName == null) {
-      document.getElementById('alert1').innerHTML = "";
-      document.getElementById('alert2').innerHTML = '<div class="alert alert-danger" role="alert">Module Name field is Empty</div > ';
-      return false;
-    }
-    else if (this.state.user === "" || this.state.user == null) {
-      document.getElementById('alert1').innerHTML = "";
-      document.getElementById('alert2').innerHTML = "";
-      return false;
-    }
+    Module(mod);
 
-    else {
-      Module(mod);
-
-    }
-
-
-    console.log(
-      mod
-    )
   }
 
   isSubmit = e => {
     this.doSubmit(e);
+    console.log(Module);
     if (this.doSubmit) {
       this.setState({
         moduleName: "",

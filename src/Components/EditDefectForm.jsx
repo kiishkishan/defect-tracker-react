@@ -10,7 +10,7 @@ import Defect from '../fetch/DefectPost';
 
 
 
-class AddDefectForm extends Component {
+class EditDefectForm extends Component {
 
 
     state = {
@@ -31,19 +31,21 @@ class AddDefectForm extends Component {
         availablein: "",
         comments: "",
         user: [],
-        modules: []
+        editdefect: []
 
     }
 
-    async getAllModules() {
-        const url = "http://localhost:8080/defect/module/getall";
+    async fetchDefectById() {
+        console.log(this.props.match.params.id)
+        const url = `http://localhost:8080/defect/getDefectById/${this.props.match.params.id}`
         const response = await fetch(url);
         const data = await response.json();
         console.log(data);
-        this.setState({ modules: data });
+        this.setState({ editdefect: data });
     }
 
-    async getAllUsers() {
+
+    async fetchUsers() {
         const url = "http://localhost:8080/defect/user/getall";
         const response = await fetch(url);
         const data = await response.json();
@@ -57,9 +59,10 @@ class AddDefectForm extends Component {
     }
 
     componentDidMount() {
-        this.getAllUsers();
-        this.getAllModules();
+        this.fetchDefectById();
+        this.fetchUsers();
     }
+
 
     doChange = e => {
 
@@ -73,59 +76,49 @@ class AddDefectForm extends Component {
 
     }
 
-
     doSubmit = e => {
         e.preventDefault();
         const defects = {
-            defect_id: this.state.defectid,
-            module: this.state.module,
-            description: this.state.description,
-            stepstorecreate: this.state.stepstorecreate,
-            severity: this.state.severity,
-            priority: this.state.priority,
-            defect_type: this.state.defecttype,
-            enteredby: this.state.enteredby,
-            entereddate: this.state.entereddate,
-            status: this.state.status,
-            assignedto: this.state.assignedto,
-            fixedby: this.state.fixedby,
-            fixeddate: this.state.fixeddate,
-            availablein: this.state.availablein,
-            comments: this.state.comments
+            Defect_ID: this.state.defectid,
+            Module: this.state.module,
+            Description: this.state.description,
+            Steps_to_recreate: this.state.stepstorecreate,
+            Severity: this.state.severity,
+            Priority: this.state.priority,
+            Defect_Type: this.state.defecttype,
+            Entered_By: this.state.enteredby,
+            Entered_Date: this.state.entereddate,
+            Status: this.state.status,
+            Assigned_To: this.state.assignedto,
+            Fixed_By: this.state.fixedby,
+            Fixed_Date: this.state.fixeddate,
+            Available_in: this.state.availablein,
+            Comments: this.state.comments
         }
-
         Defect(defects);
         console.log(
             Defect
         )
+
+        // this.setState({
+        //     defectid: "",
+        //     description: "",
+        //     stepstorecreate: "",
+        //     entereddate: "",
+        //     severity: "",
+        //     priority: "",
+        //     module: "",
+        //     defecttype: "",
+        //     enteredby: "",
+        //     status: "",
+        //     assignedto: "",
+        //     fixedby: "",
+        //     fixeddate: "",
+        //     availablein: "",
+        //     comments: "",
+        // })
+
     }
-
-    isSubmit = e => {
-        e.preventDefault();
-        this.doSubmit(e);
-        if (this.doSubmit) {
-            this.setState({
-                defectid: "",
-                description: "",
-                stepstorecreate: "",
-                entereddate: "",
-                severity: "",
-                priority: "",
-                module: "",
-                defecttype: "",
-                enteredby: "",
-                status: "",
-                assignedto: "",
-                fixedby: "",
-                fixeddate: "",
-                availablein: "",
-                comments: "",
-            })
-        }
-    }
-
-
-
 
 
     render() {
@@ -148,7 +141,7 @@ class AddDefectForm extends Component {
                                         type="text"
                                         name="defectid"
                                         id="defectid"
-                                        value={this.state.defectid}
+                                        value={this.state.editdefect.id || this.state.defectid}
                                         onChange={e => this.doChange(e)}
                                     />
                                 </p>
@@ -160,18 +153,15 @@ class AddDefectForm extends Component {
                                         value={this.state.module}
                                         onChange={e => this.doChange(e)}
                                     >
-                                        <option value="">Choose a Module </option>
-
-                                        {this.state.modules.map(e => (
-                                            <option value={e.name}>{e.name}</option>
-                                        ))}
-
+                                        <option value="Login">Login</option>
+                                        <option value="SignUp">SignUp</option>
+                                        <option value="DashBoard">DashBoard</option>
                                     </select>
                                 </p>
                                 <p className="full">
                                     <label>Description</label>
                                     <textarea
-                                        value={this.state.description}
+                                        value={this.state.editdefect.description || this.state.description}
                                         onChange={e => this.doChange(e)}
                                         name="description"
                                         rows="3"
@@ -182,7 +172,7 @@ class AddDefectForm extends Component {
                                 <p className="full">
                                     <label>Steps to Recreate</label>
                                     <textarea
-                                        value={this.state.stepstorecreate}
+                                        value={this.state.editdefect.Steps_to_recreate || this.state.stepstorecreate}
                                         onChange={e => this.doChange(e)}
                                         name="stepstorecreate"
                                         rows="4"
@@ -256,7 +246,7 @@ class AddDefectForm extends Component {
                                     >
                                         <option value="user1">Choose the User</option>
                                         {this.state.user.map(e => (
-                                            <option value={e.name}>{e.name}</option>
+                                            <option value={e.id}>{e.name}</option>
                                         ))}
                                     </select>
                                 </p>
@@ -344,7 +334,7 @@ class AddDefectForm extends Component {
                                 <p className="full">
                                     <button
                                         type="button"
-                                        onClick={e => this.isSubmit(e)}
+                                        onClick={e => this.doSubmit(e)}
                                         id="btn-submit"
                                     >
                                         Submit
@@ -360,4 +350,4 @@ class AddDefectForm extends Component {
     }
 }
 
-export default AddDefectForm;
+export default EditDefectForm;

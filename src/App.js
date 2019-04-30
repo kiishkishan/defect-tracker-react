@@ -6,6 +6,7 @@ import AddModule from "./Components/AddModule";
 // import AddUser from "./Components/AddUser";
 import AddUsers from "./Components/AddUsers";
 import AddDefectForm from './Components/AddDefectForm';
+import EditDefectForm from './Components/EditDefectForm';
 import ViewDefectTable from './Components/ViewDefectsNormal';
 import ViewModules from './Components/ViewModules';
 import ViewUsers from './Components/ViewUsers';
@@ -27,6 +28,8 @@ class App extends Component {
           <Route path="/viewusers" component={ViewUsers} />
           <Route path="/addmodules" component={AddModule} />
           <Route path="/viewmodule" component={ViewModules} />
+          {/* edit defect */}
+          <Route path="/EditDefect/:id" component={EditDefectForm} />
 
         </div>
       </Router>

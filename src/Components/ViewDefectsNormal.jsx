@@ -13,9 +13,18 @@ class ViewDefectTable extends Component {
         fetch("http://localhost:8080/defect/deleteDefect/" + id, {
             method: "DELETE"
         })
-            .then(this.getAllDefect())
+            .then(() => this.getAllDefect())
         console.log(" Successfully deleted " + id);
     };
+
+
+    handleEdit = id => {
+        // this.props.history.push(`/EditSubClass`);
+        this.props.history.push(`/EditDefect/${id}`);
+        console.log(id);
+    };
+
+
 
     async getAllDefect() {
         const url = "http://localhost:8080/defect/getAllDefect";
@@ -33,7 +42,8 @@ class ViewDefectTable extends Component {
     }
 
     render() {
-        this.handleDelete();
+        // this.handleDelete();
+        // this.getAllDefect();
         return (
             <div>
                 <Nav />
@@ -75,14 +85,21 @@ class ViewDefectTable extends Component {
                                 <tr>
 
                                     <td>{e.id}</td>
-                                    <td>{e.defect_type}</td>
-                                    <td>{e.description}</td>
+                                    <td>{e.defect_id}</td>
                                     <td>{e.module}</td>
-                                    <td>{e.priority}</td>
+                                    <td>{e.description}</td>
+                                    <td>{e.stepstorecreate}</td>
                                     <td>{e.severity}</td>
+                                    <td>{e.priority}</td>
+                                    <td>{e.defecttype}</td>
+                                    <td>{e.enteredby}</td>
+                                    <td>{e.entereddate}</td>
                                     <td>{e.status}</td>
-                                    <td>{e.steps}</td>
-                                    <td>{e.user}</td>
+                                    <td>{e.assignedto}</td>
+                                    <td>{e.fixedby}</td>
+                                    <td>{e.fixeddate}</td>
+                                    <td>{e.availablein}</td>
+                                    <td>{e.comments}</td>
                                     {/* <td>{e.Defect_ID}</td>
                                     <td>{e.Module}</td>
                                     <td>{e.Description}</td>
@@ -98,7 +115,7 @@ class ViewDefectTable extends Component {
                                     <td>{e.Fixed_Date}</td>
                                     <td>{e.Available_in}</td>
                                     <td>{e.Comments}</td> */}
-                                    <td><a href="/editdefect"><img src="https://img.icons8.com/nolan/35/000000/edit.png" alt="sorry no images" /></a></td>
+                                    <td><button type="submit" onClick={this.handleEdit.bind(this, e.id)}><img src="https://img.icons8.com/nolan/35/000000/edit.png" alt="sorry no images" /></button></td>
                                     <td><button type="submit" onClick={this.handleDelete.bind(this, e.id)}><img src="https://img.icons8.com/color/35/000000/trash.png" alt="sorry no images" /></button></td>
 
 
