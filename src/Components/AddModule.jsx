@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { Component } from "react";
 import { MDBInput, MDBBtn, MDBCard, MDBCardBody, MDBRow, MDBCol, MDBContainer } from "mdbreact";
 // import { Multiselect } from 'multiselect-react-dropdown';
@@ -147,12 +148,16 @@ class AddModule extends Component {
                         value={this.state.user}
                         onChange={e => this.doChange(e)}
                       >
-                        <option value="">Choose the Users</option>
+                        <option value="">Choose the Developer</option>
 
 
-                        {this.state.users.map(e => (
-                          <option value={e.id}>{e.name}</option>
-                        ))}
+                        {this.state.users.map(e => {
+                          if (e.type === "Developer") {
+                            return (
+                              <option value={e.id}>{e.name}</option>
+                            );
+                          }
+                        })}
 
 
 
@@ -168,7 +173,7 @@ class AddModule extends Component {
                         value={this.state.project}
                         onChange={e => this.doChange(e)}
                       >
-                        <option value="">Choose the Project</option>--+++
+                        <option value="">Choose the Project</option>
 
 
                         {this.state.projects.map(e => (

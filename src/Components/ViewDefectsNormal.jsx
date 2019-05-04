@@ -91,7 +91,7 @@ class ViewDefectTable extends Component {
                                     <td>{e.stepstorecreate}</td>
                                     <td>{e.severity}</td>
                                     <td>{e.priority}</td>
-                                    <td>{e.defecttype}</td>
+                                    <td>{e.defectType}</td>
                                     <td>{e.enteredby}</td>
                                     <td>{e.entereddate}</td>
                                     <td>{e.status}</td>

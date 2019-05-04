@@ -8,7 +8,21 @@ class ViewUsers extends Component {
 
     }
 
-    async componentDidMount() {
+    componentDidMount() {
+        this.getAllUsers();
+        // this.handleDelete();
+    }
+
+    handleDelete = id => {
+        fetch("http://localhost:8080/defect/user/delete/" + id, {
+            method: "DELETE"
+        })
+            .then(() => this.getAllUsers())
+        console.log(" Successfully deleted " + id);
+    };
+
+
+    async getAllUsers() {
         const url = "http://localhost:8080/defect/user/getall";
         const response = await fetch(url);
         const data = await response.json();
@@ -21,6 +35,7 @@ class ViewUsers extends Component {
 
     }
     render() {
+        // this.getAllUsers();
         return (
             <div>
                 <Nav />
@@ -51,8 +66,8 @@ class ViewUsers extends Component {
                                     <td>{e.name}</td>
                                     <td>{e.email}</td>
                                     <td>{e.type}</td>
-                                    <td><a href="/edituser"><img src="https://img.icons8.com/nolan/35/000000/edit.png" alt="sorry no images" /></a></td>
-                                    <td><a href="/deleteuser"><img src="https://img.icons8.com/color/35/000000/trash.png" alt="sorry no images" /></a></td>
+                                    <td><button type="submit"><img src="https://img.icons8.com/nolan/35/000000/edit.png" alt="sorry no images" /></button></td>
+                                    <td><button type="submit" onClick={this.handleDelete.bind(this, e.id)}><img src="https://img.icons8.com/color/35/000000/trash.png" alt="sorry no images" /></button></td>
                                 </tr>
                             ))}
                         </tbody>

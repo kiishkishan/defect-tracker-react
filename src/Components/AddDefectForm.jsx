@@ -3,6 +3,7 @@ import { MDBContainer } from 'mdbreact';
 import Nav from './Nav';
 import Defect from '../fetch/DefectPost';
 
+
 // import Select from 'react-select';
 
 
@@ -11,7 +12,6 @@ import Defect from '../fetch/DefectPost';
 
 
 class AddDefectForm extends Component {
-
 
     state = {
         defectid: "",
@@ -24,7 +24,7 @@ class AddDefectForm extends Component {
         module: "",
         defecttype: "UI",
         enteredby: "",
-        status: "",
+        status: "New",
         assignedto: "",
         fixedby: "",
         fixeddate: new Date().getFullYear() + '-' + new Date().getMonth() + '-' + new Date().getDay(),
@@ -50,15 +50,41 @@ class AddDefectForm extends Component {
         console.log(data);
         this.setState({ user: data });
 
-        // data.forEach(element => {
-        //     console.log(element.severity);
-        // });
+        // old try for seperate QA and Delveloper
+        // this.state.user.forEach(data => {
+        //     if (data.type === "QA") {
+        //         this.setState({ qa: data })
+        //         console.log(this.state.qa);
+        //     }
 
+        //     else if (data.type === "Developer") {
+        //         this.setState({ developer: data })
+        //         console.log(this.state.developer);
+        //     }
+        // });
     }
+
+    // QAselector = () => {
+    //     this.state.user.forEach(element => {
+    //         if (element.type === "QA") {
+    //             this.setState({ qa: element })
+    //             alert(this.state.qa);
+    //         }
+
+    //         else if (element.type === "Developer") {
+    //             this.setState({ developer: element })
+    //             console.log(this.state.developer);
+    //         }
+
+
+
+    //     });
+    // }
 
     componentDidMount() {
         this.getAllUsers();
         this.getAllModules();
+
     }
 
     doChange = e => {
@@ -69,7 +95,7 @@ class AddDefectForm extends Component {
         this.setState({
             [e.target.id]: e.target.value
         })
-        console.log(this.state.severity)
+        console.log(this.state.defecttype)
 
     }
 
@@ -83,7 +109,7 @@ class AddDefectForm extends Component {
             stepstorecreate: this.state.stepstorecreate,
             severity: this.state.severity,
             priority: this.state.priority,
-            defect_type: this.state.defecttype,
+            defecttype: this.state.defecttype,
             enteredby: this.state.enteredby,
             entereddate: this.state.entereddate,
             status: this.state.status,
@@ -139,6 +165,7 @@ class AddDefectForm extends Component {
                     <div className="wrapper animated bounceInLeft">
                         <div className="company-info">
                             <h3>Defect Entry</h3>
+                            {/* <button onClick={element => this.QAselector(element)} value={this.state.sample}>Click</button> */}
                         </div>
                         <div className="contact">
                             <form name="defAdd">
@@ -241,6 +268,7 @@ class AddDefectForm extends Component {
                                         value={this.state.defecttype}
                                         onChange={e => this.doChange(e)}
                                     >
+
                                         <option value="UI">UI</option>
                                         <option value="Functionality">Functionality</option>
                                         <option value="Performance">Performance</option>
@@ -254,10 +282,19 @@ class AddDefectForm extends Component {
                                         value={this.state.enteredby}
                                         onChange={e => this.doChange(e)}
                                     >
-                                        <option value="user1">Choose the User</option>
-                                        {this.state.user.map(e => (
-                                            <option value={e.name}>{e.name}</option>
-                                        ))}
+                                        <option value="">Choose a Developer</option>
+
+
+                                        {/* eslint-disable-next-line array-callback-return */}
+                                        {this.state.user.map(e => {
+                                            if (e.type === "QA") {
+                                                return (
+                                                    <option value={e.id}>{e.name}</option>
+                                                );
+
+                                            }
+                                        }
+                                        )}
                                     </select>
                                 </p>
                                 <p>
@@ -290,10 +327,18 @@ class AddDefectForm extends Component {
                                         value={this.state.assignedto}
                                         onChange={e => this.doChange(e)}
                                     >
-                                        <option value="user1">Choose the User</option>
-                                        {this.state.user.map(e => (
-                                            <option value={e.id}>{e.name}</option>
-                                        ))}
+
+                                        <option value="">Choose a Developer</option>
+                                        {/* eslint-disable-next-line array-callback-return */}
+                                        {this.state.user.map(e => {
+                                            if (e.type === "Developer") {
+                                                return (
+                                                    <option value={e.id}>{e.name}</option>
+                                                );
+
+                                            }
+                                        }
+                                        )}
                                     </select>
                                 </p>
                                 <p>
@@ -304,10 +349,17 @@ class AddDefectForm extends Component {
                                         value={this.state.fixedby}
                                         onChange={e => this.doChange(e)}
                                     >
-                                        <option value="user1">Choose the User</option>
-                                        {this.state.user.map(e => (
-                                            <option value={e.id}>{e.name}</option>
-                                        ))}
+                                        <option value="user1">Choose the Developer</option>
+                                        {/* eslint-disable-next-line array-callback-return */}
+                                        {this.state.user.map(e => {
+                                            if (e.type === "Developer") {
+                                                return (
+                                                    <option value={e.id}>{e.name}</option>
+                                                );
+
+                                            }
+                                        }
+                                        )}
                                     </select>
                                 </p>
                                 <p>

@@ -8,7 +8,11 @@ class ViewModules extends Component {
 
     }
 
-    async componentDidMount() {
+    componentDidMount() {
+        this.getAllModules();
+    }
+
+    async getAllModules() {
         const url = "http://localhost:8080/defect/module/getall";
         const response = await fetch(url);
         const data = await response.json();
@@ -20,6 +24,17 @@ class ViewModules extends Component {
         // });
 
     }
+
+    handleDelete = id => {
+        fetch("http://localhost:8080/defect/deleteDefect/" + id, {
+            method: "DELETE"
+        })
+            .then(() => this.getAllModules())
+        console.log(" Successfully deleted " + id);
+    };
+
+
+
     render() {
         return (
             <div>
@@ -28,7 +43,7 @@ class ViewModules extends Component {
                 <MDBContainer fluid>
                     <div className="empty-height"></div>
                     {/* // < !--Table-- > */}
-                    <table className="table-striped table-light table-responsive-xl table-bordered">
+                    <table className="table-striped table-light table-responsive-xl table-bordered" style={{ textAlign: "center" }}>
 
                         {/* <!--Table head--> */}
                         <thead>
@@ -49,10 +64,10 @@ class ViewModules extends Component {
                             {this.state.modules.map(e => (
                                 <tr>
 
-                                    <td>{e.id}</td>
+                                    <td>{e.moduleId}</td>
                                     <td>{e.name}</td>
-                                    <td>{e.project_id}</td>
-                                    <td>{e.user_id}</td>
+                                    <td>{e.project.name}</td>
+                                    <td>{e.user.name}</td>
                                     <td><a href="/editmodule"><img src="https://img.icons8.com/nolan/35/000000/edit.png" alt="sorry no images" /></a></td>
                                     <td><a href="/deletemodule"><img src="https://img.icons8.com/color/35/000000/trash.png" alt="sorry no images" /></a></td>
                                 </tr>
