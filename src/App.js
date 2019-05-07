@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 
-// import Login from "./Components/Login";
+import AddProject from "./Components/AddProject";
 import AddModule from "./Components/AddModule";
-// import AddUser from "./Components/AddUser";
+ import ViewProject from "./Components/ViewUsers";
 import AddUsers from "./Components/AddUsers";
 import AddDefectForm from './Components/AddDefectForm';
 import EditDefectForm from './Components/EditDefectForm';
@@ -28,6 +28,9 @@ class App extends Component {
           <Route path="/viewusers" component={ViewUsers} />
           <Route path="/addmodules" component={AddModule} />
           <Route path="/viewmodule" component={ViewModules} />
+          <Route path="/addprojects" component={AddProject} />
+          <Route path="/viewprojects" component={ViewProject} />
+
           {/* edit defect */}
           <Route path="/EditDefect/:id" component={EditDefectForm} />
 

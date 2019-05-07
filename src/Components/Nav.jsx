@@ -62,14 +62,18 @@ class Nav extends Component {
                                         </MDBDropdownMenu>
                                     </MDBDropdown>
                                 </MDBNavItem>
+                                <MDBNavItem>
+                                    <MDBDropdown>
+                                        <MDBDropdownToggle nav caret>
+                                            <span className="mr-2">Projects</span>
+                                        </MDBDropdownToggle>
+                                        <MDBDropdownMenu>
+                                            <MDBDropdownItem id="dd" href="/addprojects">Add a Project</MDBDropdownItem>
+                                            <MDBDropdownItem id="dd" href="/viewprojects">Manage Projects</MDBDropdownItem>
+                                        </MDBDropdownMenu>
+                                    </MDBDropdown>
+                                </MDBNavItem>
                                 {/* <li className="nav-item dropdown">
-                                    <a className="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Users</a>
-                                    <div className="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink">
-                                        <a className="dropdown-item waves-effect waves-light" href="#">Add</a>
-                                        <a className="dropdown-item waves-effect waves-light" href="#">Manage</a>
-                                    </div>
-                                </li>
-                                <li className="nav-item dropdown">
                                     <a className="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Modules</a>
                                     <div className="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink">
                                         <a className="dropdown-item waves-effect waves-light" href="#">Add</a>
